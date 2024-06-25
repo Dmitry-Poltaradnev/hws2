@@ -1,8 +1,5 @@
 {
-  "name": "hws2",
-  "homepage": "http://Dmitry-Poltaradnev.github.io/hws2",
   "version": "0.1.0",
-  "private": false,
   "dependencies": {
     "@emotion/react": "11.10.4",
     "@emotion/styled": "11.10.4",
