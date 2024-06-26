@@ -1,11 +1,21 @@
 .App {
     --header_height: 60px;
+    margin:0 auto;
+    width: 1280px;
 }
 
 .hw {
-
+    padding: 20px;
+    top: 131px;
+    border: 1px solid rgba(217, 217, 217, 1);
 }
 
 .hwTitle {
-
+    font-size: 22px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 600;
+}
+.wrapperMessage{
+    display: flex;
+    justify-content: space-between;
 }
