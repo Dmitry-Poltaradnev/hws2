@@ -1,20 +1,22 @@
-.input:focus {
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
 }
 
 .input {
-}
-
-.inputWrapper {
+    padding: 10px;
+    border: 1px solid #ccc;
 }
 
 .superInput {
+    /* ваши стили для класса superInput */
 }
 
 .errorInput {
-}
-
-.errorInput:focus {
+    border-color: red;
 }
 
 .error {
+    color: red;
+    font-size: 12px;
 }

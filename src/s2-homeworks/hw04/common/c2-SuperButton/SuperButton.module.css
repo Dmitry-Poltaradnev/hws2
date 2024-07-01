@@ -1,36 +1,26 @@
 .button {
-}
-
-.disabled {
-}
-
-.secondary {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
 }
 
 .default {
+    background-color: grey;
+    color: white;
 }
 
 .red {
+    background-color: red;
+    color: white;
 }
 
-.default:hover {
+.secondary {
+    background-color: blue;
+    color: white;
 }
 
-.red:hover {
-}
-
-.secondary:hover {
-}
-
-
-.default:active {
-}
-
-.secondary:active {
-}
-
-.red:active {
-}
-
-.button:disabled {
+.disabled {
+    background-color: lightgrey;
+    color: darkgrey;
+    cursor: not-allowed;
 }
