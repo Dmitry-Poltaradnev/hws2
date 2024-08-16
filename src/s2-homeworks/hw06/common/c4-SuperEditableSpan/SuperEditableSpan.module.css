@@ -1,7 +1,11 @@
 .spanBlock {
+    max-width: 280px;
+    display: flex;
+    gap: 20px;
 }
 
 .span {
+ display: block;
 }
 
 .input {

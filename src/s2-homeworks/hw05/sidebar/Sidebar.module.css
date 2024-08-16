@@ -1,16 +1,28 @@
 .sidebar {
-    display: none;
-    position: relative;
+    position: fixed; /* Измените на fixed, чтобы панель была зафиксирована на экране */
+    top: 0; /* Начало сверху */
+    left: 0; /* Начало слева */
+    background-color: aquamarine;
+    width: 30%; /* Ширина боковой панели */
+    height: 100vh; /* Высота 100% высоты экрана */
+    transform: translateX(-100%); /* Сдвигаем за пределы экрана */
+    transition: transform 0.3s ease; /* Плавный переход при открытии/закрытии */
+    z-index: 1000; /* Убедитесь, что панель находится поверх других элементов */
 }
 
 .sidebar.open {
-    background-color: aquamarine;
     display: block;
-    height: 100vh;
-    width: 30%;
+    transform: translateX(0); /* Возвращаем на экран */
 }
 
 .background {
+    position: fixed; /* Фон фиксируется относительно экрана */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    z-index: 999; /* Располагаем фон под боковой панелью */
 }
 
 .nav {
@@ -30,7 +42,7 @@
 
 .nav a:hover {
     color: blue;
-    transition: 0.1s ;
+    transition: 0.1s;
 }
 
 .nav a.active {
@@ -45,8 +57,11 @@
     top: 20px;
     right: 20px;
 }
+.close:hover{
+
+}
 
 .close img {
     cursor: pointer;
-    z-index: 1000;
+    z-index: 1001;
 }

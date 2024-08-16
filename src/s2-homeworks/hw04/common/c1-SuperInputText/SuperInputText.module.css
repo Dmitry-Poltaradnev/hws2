@@ -6,10 +6,10 @@
 .input {
     padding: 10px;
     border: 1px solid #ccc;
+    color: blue;
 }
 
 .superInput {
-    /* ваши стили для класса superInput */
 }
 
 .errorInput {
