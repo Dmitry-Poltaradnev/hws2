@@ -14,13 +14,17 @@ import {Loader} from './Loader'
 * */
 
 const HW10 = () => {
-    // useSelector, useDispatch // пишет студент
-    const isLoading = false
+
+    const dispatch = useDispatch()
+    const isLoading: any = useSelector((state: AppStoreType) => state.loading.loading.isLoading)
+    console.log(isLoading)
+
 
     const setLoading = () => { // пишет студент // показать крутилку на 1,5 секунд
         // dispatch
-
         // setTimeout
+        dispatch(loadingAC(true))
+        setTimeout(() => dispatch(loadingAC(false)), 1500)
     }
 
     return (
@@ -33,7 +37,7 @@ const HW10 = () => {
                         <Loader/>
                     </div>
                 ) : (
-                    <SuperButton
+                    <SuperButton style={{backgroundColor :' #0066CC'}}
                         id={'hw10-button-start-loading'}
                         onClick={setLoading}
                     >
