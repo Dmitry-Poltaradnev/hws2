@@ -16,9 +16,7 @@ import {Loader} from './Loader'
 const HW10 = () => {
 
     const dispatch = useDispatch()
-    const isLoading: any = useSelector((state: AppStoreType) => state.loading.loading.isLoading)
-    console.log(isLoading)
-
+    const isLoading: any = useSelector((state: AppStoreType) => state.loading.isLoading)
 
     const setLoading = () => { // пишет студент // показать крутилку на 1,5 секунд
         // dispatch
@@ -37,9 +35,9 @@ const HW10 = () => {
                         <Loader/>
                     </div>
                 ) : (
-                    <SuperButton style={{backgroundColor :' #0066CC'}}
-                        id={'hw10-button-start-loading'}
-                        onClick={setLoading}
+                    <SuperButton style={{backgroundColor: ' #0066CC'}}
+                                 id={'hw10-button-start-loading'}
+                                 onClick={setLoading}
                     >
                         Set loading...
                     </SuperButton>
