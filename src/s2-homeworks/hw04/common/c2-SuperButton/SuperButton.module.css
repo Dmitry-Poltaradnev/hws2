@@ -16,8 +16,9 @@
 }
 
 .secondary {
-    background-color: blue;
-    color: white;
+    background-color: white;
+    color: blue;
+    border: solid 1px blue;
 }
 
 .disabled {
