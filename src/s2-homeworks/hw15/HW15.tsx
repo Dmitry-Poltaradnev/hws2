@@ -50,13 +50,16 @@ const HW15 = () => {
     const sendQuery = (params: any) => {
         setLoading(true)
         getTechs(params)
-            .then((res) => {
+            .then((res: any) => {
                 // делает студент
-
+                console.log(res.data)
                 // сохранить пришедшие данные
-
+                setTechs(res.data.techs)
+                setTotalCount(res.data.totalCount)
                 //
-            })
+            }).finally(() => {
+            setLoading(false)
+        })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
@@ -67,27 +70,50 @@ const HW15 = () => {
 
         // sendQuery(
         // setSearchParams(
-
         //
+        setPage(newPage)
+        setCount(newCount)
+
+        const params = {
+            page: newPage,
+            count: newCount,
+            sort,
+        }
+
+        sendQuery(params)
+        setSearchParams(params as any)
     }
 
     const onChangeSort = (newSort: string) => {
-        // делает студент
+        setSort(newSort)
+        setPage(1)
 
-        // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
+        const params = {
+            page: 1,
+            count,
+            sort: newSort,
+        }
 
-        // sendQuery(
-        // setSearchParams(
-
-        //
+        sendQuery(params)
+        setSearchParams(params as any)
     }
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
-        sendQuery({page: params.page, count: params.count})
-        setPage(+params.page || 1)
-        setCount(+params.count || 4)
+
+        const actualPage = Number(params.page) || 1
+        const actualCount = Number(params.count) || 4
+        const actualSort = params.sort || ''
+
+        setPage(actualPage)
+        setCount(actualCount)
+        setSort(actualSort)
+
+        sendQuery({
+            page: actualPage,
+            count: actualCount,
+            sort: actualSort,
+        })
     }, [])
 
     const mappedTechs = techs.map(t => (
@@ -117,16 +143,15 @@ const HW15 = () => {
                 />
 
                 <div className={s.rowHeader}>
-                    <div className={s.techHeader}>
+                    <SuperSort sort={sort} value="tech" onChange={onChangeSort}>
                         tech
-                        <SuperSort sort={sort} value={'tech'} onChange={onChangeSort}/>
-                    </div>
+                    </SuperSort>
 
-                    <div className={s.developerHeader}>
+                    <SuperSort sort={sort} value="developer" onChange={onChangeSort}>
                         developer
-                        <SuperSort sort={sort} value={'developer'} onChange={onChangeSort}/>
-                    </div>
+                    </SuperSort>
                 </div>
+
 
                 {mappedTechs}
             </div>
